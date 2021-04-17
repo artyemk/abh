@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Editorial by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="/" class="logo"><b>Личный кабинет</b></a>
+				</header>
+
+				<header style="margin-top: 3em" class="major">
+					<h2>Ваши данные</h2>
+				</header>
+
+				<ul class="contact">
+					<li class="icon solid fa-envelope">
+						<h3>Ваш Email:</h3> <b>{{user.username}}</b>
+					</li>
+				</ul>
+				<h3>Смена пароля</h3>
+				<div class="row gtr-uniform">
+					
+					<div class="col-6">
+						<a class="button primary fit" href="{% url 'password_change' %}" class="primary">Сменить пароль</a>
+					</div>
+				</div>
+
+				<header style="margin-top: 3em" class="major">
+					<h2>Добавить заведение</h2>
+				</header>
+
+				<form method="post" action="#">
+					<div class="row gtr-uniform">
+						<div class="col-6 col-12-xsmall">
+							<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name">
+						</div>
+						<div class="col-6 col-12-xsmall">
+							<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email">
+						</div>
+						<!-- Break -->
+						<div class="col-12">
+							<select name="demo-category" id="demo-category">
+								<option value="">- Category -</option>
+								<option value="1">Manufacturing</option>
+								<option value="1">Shipping</option>
+								<option value="1">Administration</option>
+								<option value="1">Human Resources</option>
+							</select>
+						</div>
+						<!-- Break -->
+						<div class="col-4 col-12-small">
+							<input type="radio" id="demo-priority-low" name="demo-priority" checked="">
+							<label for="demo-priority-low">Low</label>
+						</div>
+						<div class="col-4 col-12-small">
+							<input type="radio" id="demo-priority-normal" name="demo-priority">
+							<label for="demo-priority-normal">Normal</label>
+						</div>
+						<div class="col-4 col-12-small">
+							<input type="radio" id="demo-priority-high" name="demo-priority">
+							<label for="demo-priority-high">High</label>
+						</div>
+						<!-- Break -->
+						<div class="col-6 col-12-small">
+							<input type="checkbox" id="demo-copy" name="demo-copy">
+							<label for="demo-copy">Email me a copy</label>
+						</div>
+						<div class="col-6 col-12-small">
+							<input type="checkbox" id="demo-human" name="demo-human" checked="">
+							<label for="demo-human">I am a human</label>
+						</div>
+						<!-- Break -->
+						<div class="col-12">
+							<textarea name="demo-message" id="demo-message" placeholder="Enter your message"
+								rows="6"></textarea>
+						</div>
+						<!-- Break -->
+						<div class="col-12">
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" class="primary"></li>
+								<li><input type="reset" value="Reset"></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+				<!-- Search -->
+				<!-- <section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section> -->
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Меню</h2>
+						{% if user.is_authenticated %}
+						<p><a class="btn btn-primary" href="{% url 'logout' %}">Выйти</a></p>
+						{% endif %}
+					</header>
+					<ul>
+						{% if user.is_authenticated %}
+						<li><a href="/lk/">Личный кабинет</a></li>
+						{%else%}
+						<li><a href="{% url 'login' %}"><b>Войти</b></a></li>
+						{%endif%}
+
+						<li><a href="/">Развлечения</a></li>
+						<li><a href="/food/">Поесть</a></li>
+						<li><a href="elements.html">Elements</a></li>
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Ante interdum</h2>
+					</header>
+					<div class="mini-posts">
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic07.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic08.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic09.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button">More</a></li>
+					</ul>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
+						ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
+						tempus aliquam.</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+						<li class="icon solid fa-phone">(000) 000-0000</li>
+						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+							Nashville, TN 00000-0000</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>
