@@ -48,6 +48,10 @@
 					</div>
 				</div>
 
+				<section id="business_section">
+					<p>Тут бизнес аккаунт можно будет создать</p>
+				</section>
+
 				<form enctype="multipart/form-data" id="trav_form" style="margin-top: 3em" method="post" action="/insert_rest_tourist/">
 					{% csrf_token %}
 					<div class="row gtr-uniform">
@@ -254,7 +258,7 @@
 						<ul class="contact">
 							<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
 							
-							<li class="icon solid fa-telegram-plane">@telegram</li>
+							<li class="icon solid fa-paper-plane">@telegram</li>
 							<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
 								Nashville, TN 00000-0000</li>
 					</ul>
@@ -284,11 +288,6 @@
 		$('#trav_form').hide()
 		$('#cuisine_types').hide()
 		$('#rest_cash').hide()
-
-		// $("input:file").on('click', function () {
-		// 	var len = $(":input").length
-		// 	$('#photos').after('<div class="col-12"><label for="file-upload' + len + '" class="button primary fit"> Загрузите фото </label> <input type="file" id="file-upload' + len + '" name="image" accept="image/png, image/jpeg, image/jpg"></div>');
-		// })
 
 		$('#cat').on('change', function () {
 			if (this.value == "rest") {
@@ -323,6 +322,11 @@
 		$('#trav_btn').on('click', function () {
 			$('#button_group').hide()
 			$('#trav_form').show()
+		});
+
+		$('#business_btn').on('click', function () {
+			$('#button_group').hide()
+			$('#business_section').show()
 		});
 
 	</script>
