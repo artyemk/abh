@@ -20,7 +20,7 @@
 
 		<!-- Main -->
 		<div id="main">
-			<div class="inner">
+			<div class="inner lk_view">
 
 				<!-- Header -->
 				<header id="header">
@@ -33,14 +33,15 @@
 
 				<ul class="contact">
 					<li class="icon solid fa-envelope">
-						<h3>Ваш Email:</h3> <b>{{user.username}}</b>
+						<h3>Ваш Email: {{user.username}} </h3>
 					</li>
 				</ul>
 				<h3>Смена пароля</h3>
 				<div class="row gtr-uniform">
-					
+
 					<div class="col-6">
-						<a class="button primary fit" href="{% url 'password_change' %}" class="primary">Сменить пароль</a>
+						<a class="button primary fit" href="{% url 'password_change' %}" class="primary">Сменить
+							пароль</a>
 					</div>
 				</div>
 
@@ -48,60 +49,18 @@
 					<h2>Добавить заведение</h2>
 				</header>
 
-				<form method="post" action="#">
-					<div class="row gtr-uniform">
-						<div class="col-6 col-12-xsmall">
-							<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name">
-						</div>
-						<div class="col-6 col-12-xsmall">
-							<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email">
-						</div>
-						<!-- Break -->
-						<div class="col-12">
-							<select name="demo-category" id="demo-category">
-								<option value="">- Category -</option>
-								<option value="1">Manufacturing</option>
-								<option value="1">Shipping</option>
-								<option value="1">Administration</option>
-								<option value="1">Human Resources</option>
-							</select>
-						</div>
-						<!-- Break -->
-						<div class="col-4 col-12-small">
-							<input type="radio" id="demo-priority-low" name="demo-priority" checked="">
-							<label for="demo-priority-low">Low</label>
-						</div>
-						<div class="col-4 col-12-small">
-							<input type="radio" id="demo-priority-normal" name="demo-priority">
-							<label for="demo-priority-normal">Normal</label>
-						</div>
-						<div class="col-4 col-12-small">
-							<input type="radio" id="demo-priority-high" name="demo-priority">
-							<label for="demo-priority-high">High</label>
-						</div>
-						<!-- Break -->
-						<div class="col-6 col-12-small">
-							<input type="checkbox" id="demo-copy" name="demo-copy">
-							<label for="demo-copy">Email me a copy</label>
-						</div>
-						<div class="col-6 col-12-small">
-							<input type="checkbox" id="demo-human" name="demo-human" checked="">
-							<label for="demo-human">I am a human</label>
-						</div>
-						<!-- Break -->
-						<div class="col-12">
-							<textarea name="demo-message" id="demo-message" placeholder="Enter your message"
-								rows="6"></textarea>
-						</div>
-						<!-- Break -->
-						<div class="col-12">
-							<ul class="actions">
-								<li><input type="submit" value="Send Message" class="primary"></li>
-								<li><input type="reset" value="Reset"></li>
-							</ul>
-						</div>
+				<div class="row gtr-uniform">
+					<div class="col-6 col-12-small">
+						<p>Владелец бизнеса? Или знаете интересное место? Вы можете разместить информацию об этом месте
+							у нас на сайте. Для этого необходимо заполнить форму</p>
 					</div>
-				</form>
+				</div>
+
+				<div style="margin-top: 1em" class="row gtr-uniform">
+					<div class="col-6">
+						<a class="button primary fit" href="{% url 'add_place' %}" class="primary">Добавить место</a>
+					</div>
+				</div>
 
 			</div>
 		</div>
@@ -109,15 +68,6 @@
 		<!-- Sidebar -->
 		<div id="sidebar">
 			<div class="inner">
-
-				<!-- Search -->
-				<!-- <section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section> -->
-
-				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
 						<h2>Меню</h2>
@@ -125,23 +75,26 @@
 						<p><a class="btn btn-primary" href="{% url 'logout' %}">Выйти</a></p>
 						{% endif %}
 					</header>
-					<ul>
+					<ul class="contact">
 						{% if user.is_authenticated %}
 						<li><a href="/lk/">Личный кабинет</a></li>
 						{%else%}
 						<li><a href="{% url 'login' %}"><b>Войти</b></a></li>
 						{%endif%}
 
-						<li><a href="/">Развлечения</a></li>
+						<li><a href="/thingstodo/">Развлечения</a></li>
 						<li><a href="/food/">Поесть</a></li>
-						<li><a href="elements.html">Elements</a></li>
+						<li><a href="#">Бары и пабы</a></li>
+						
+						<li class="icon solid fa-plus-circle fa-xs"></li> <a style="margin-left: 2em;"
+							href="/add_place/">Добавить место</a>
 					</ul>
 				</nav>
 
 				<!-- Section -->
 				<section>
 					<header class="major">
-						<h2>Ante interdum</h2>
+						<h2>Лучший выбор</h2>
 					</header>
 					<div class="mini-posts">
 						<article>
@@ -168,11 +121,11 @@
 						<h2>Get in touch</h2>
 					</header>
 					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
-						ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
+						ullamcorper dolore. Proin sed aliquam facilisis Лучший выбор. Sed nulla amet lorem feugiat
 						tempus aliquam.</p>
 					<ul class="contact">
 						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-						<li class="icon solid fa-phone">(000) 000-0000</li>
+						<li class="icon solid fa-location-arrow">@telegram</li>
 						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
 							Nashville, TN 00000-0000</li>
 					</ul>

@@ -4,6 +4,7 @@ from django.utils import timezone
 
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -11,8 +12,13 @@ logger = logging.getLogger(__name__)
 def index(request):
     return render(request, "index.html")
 
+@login_required(login_url='/accounts/login/')
 def lk(request):
     return render(request, "lk.html")
+
+@login_required(login_url='/accounts/login/')
+def add_place(request):
+    return render(request, "add_place.html")
 
 def signup(request):
     if request.method == 'POST':

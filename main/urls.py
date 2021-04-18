@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from main import views
-from food.views import get_food_places, get_food_place
+from food.views import get_food_places, get_food_place, insert_review, insert_rest_tourist, thingstodo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,10 @@ urlpatterns = [
     path('food/<id__>', get_food_place, name='get_food_place'),
     path('signup/', views.signup, name='signup'),
     path('lk/', views.lk, name='lk'),
+    path('add_place/', views.add_place, name='add_place'),
+    path('thingstodo/', thingstodo, name='thingstodo'),
+    path('insert_rest_tourist/', insert_rest_tourist, name='insert_rest_tourist'),
+    path('insert_review/<id__>', insert_review, name='insert_review'),
     path('accounts/', include('django.contrib.auth.urls')),
 ] 
 

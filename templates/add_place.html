@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Editorial by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<style>
+		input[type="file"] {
+			display: none;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div style="margin-top: 3em"class="inner add_place">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="/" class="logo"><b>Добавить место</b></a>
+				</header>
+
+				<div id="button_group">
+					<p style="margin-top: 3em">Вы владелец бизнеса?</p>
+					<div class="row gtr-uniform">
+						<div class="col-12">
+							<a id="business_btn" class="button primary fit">Я владелец бизнеса</a>
+						</div>
+					</div>
+
+					<div style="margin-top: 1em; margin-bottom: 2em" class="row gtr-uniform">
+						<div class="col-12">
+							<a id="trav_btn" class="button primary fit">Просто знаю хорошее место</a>
+						</div>
+					</div>
+				</div>
+
+				<form enctype="multipart/form-data" id="trav_form" style="margin-top: 3em" method="post" action="/insert_rest_tourist/">
+					{% csrf_token %}
+					<div class="row gtr-uniform">
+						<div class="col-12">
+							<input type="text" name="place_name" id="place_name" value=""
+								placeholder="Официальное название места">
+						</div>
+						<div class="col-12">
+							<select name="cat" id="cat">
+								<option value="">Категория</option>
+								<option value="rest">Рестораны</option>
+								<option value="fun">Развлечения</option>
+								<option value="bar">Бары и пабы</option>
+								<option value="tea">Кофе и чай</option>
+								<option value="nature">Красивые места</option>
+							</select>
+						</div>
+						<div class="col-12">
+							<input type="text" name="city" id="city" value="" placeholder="Город">
+						</div>
+						<div class="col-12 ">
+							<input type="text" name="street" id="street" value=""
+								placeholder="Улица и номер дома">
+						</div>
+						<div class="col-12">
+							<input type="text" name="street_add" id="street_add" value=""
+								placeholder="Дополнительные сведения об адресе">
+						</div>
+						<div class="col-12">
+							<input type="text" name="website" id="website" value="" placeholder="Веб-сайт">
+						</div>
+						<div class="col-12">
+							<input type="text" name="phone" id="phone" value="" placeholder="Телефон">
+						</div>
+						<div id="rest_price" class="col-12">
+							<select name="price" id="price">
+								<option value="">Цена</option>
+								<option value="1">Дешевое питание</option>
+								<option value="2">По умеренной цене</option>
+								<option value="3">Высокая кухня</option>
+							</select>
+						</div>
+
+						<div id="rest_cash" class="col-12 col-12-small">
+							<h4>Есть безналичный расчет?</h4>
+							<input type="checkbox" id="cash" name="cash">
+							<label for="cash">Безаличный расчет</label>
+
+							<h4>Есть бесплатный Wi-Fi?</h4>
+							<input type="checkbox" id="wifi" name="wifi">
+							<label for="wifi">Бесплатный Wi-Fi</label>
+
+						</div>
+
+						<div id="rest_smoke" class="col-12 col-12-small">
+							<h4>Можно курить?</h4>
+							<input type="checkbox" id="smoke" name="smoke">
+							<label for="smoke">Можно курить</label>
+							<h4>Кухня (укажите не более 5)</h4>
+						</div>
+						<div id="cuisine_types" class="row gtr-uniform">
+
+							<div class="col-6">
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_ab" name="c_ab">
+									<label for="c_ab">Абхазская</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_az" name="c_az">
+									<label for="c_az">Азиатская</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_ar" name="c_ar">
+									<label for="c_ar">Армянская</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_vt" name="c_vt">
+									<label for="c_vt">Вьетнамская</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_gr" name="c_gr">
+									<label for="c_gr">Грузинская</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_hl" name="c_hl">
+									<label for="c_hl">Здоровая</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_it" name="c_it">
+									<label for="c_it">Итальянская</label>
+								</div>
+							</div>
+							<div id="checks" class="col-6">
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_kz" name="c_kz">
+									<label for="c_kz">Кавказская</label>
+								</div>
+								<div class="col-12 col-12-small">
+									<input type="checkbox" id="c_sh" name="c_sh">
+									<label for="c_sh">Суши</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="c_sf" name="c_sf">
+									<label for="c_sf">Морепродукты</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="c_pz" name="c_pz">
+									<label for="c_pz">Пицца</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="c_ru" name="c_ru">
+									<label for="c_ru">Русская</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="c_uz" name="c_uz">
+									<label for="c_uz">Узбекская</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="c_ul" name="c_ul">
+									<label for="c_ul">Уличная еда</label>
+								</div>
+							</div>
+						</div>
+
+						<div id="photos" class="col-12">
+							<label for="image" class="button primary fit">
+								Загрузите фото
+							</label>
+							<input type="file" id="image" name="image" accept="image/png, image/jpeg, image/jpg">
+						</div>
+
+						<!-- Break -->
+						<div class="col-12">
+							<ul class="actions">
+								<li><input type="submit" value="Отправить заявку" class="primary"></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+
+				<a href="/lk/" class="logo"><b>Назад</b></a>
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Меню</h2>
+						{% if user.is_authenticated %}
+						<p><a class="btn btn-primary" href="{% url 'logout' %}">Выйти</a></p>
+						{% endif %}
+					</header>
+					<ul class="contact">
+						{% if user.is_authenticated %}
+						<li><a href="/lk/">Личный кабинет</a></li>
+						{%else%}
+						<li><a href="{% url 'login' %}"><b>Войти</b></a></li>
+						{%endif%}
+
+						<li><a href="/thingstodo/">Развлечения</a></li>
+						<li><a href="/food/">Поесть</a></li>
+						<li><a href="#">Бары и пабы</a></li>
+						
+						<li class="icon solid fa-plus-circle fa-xs"></li> <a style="margin-left: 2em;" href="/add_place/">Добавить место</a>
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Лучший выбор</h2>
+					</header>
+					<div class="mini-posts">
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic07.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic08.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic09.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button">More</a></li>
+					</ul>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
+						ullamcorper dolore. Proin sed aliquam facilisis Лучший выбор. Sed nulla amet lorem feugiat
+						tempus aliquam.</p>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+							
+							<li class="icon solid fa-telegram-plane">@telegram</li>
+							<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+								Nashville, TN 00000-0000</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+	<script>
+		$('#rest_price').hide()
+		$('#rest_smoke').hide()
+		$('#trav_form').hide()
+		$('#cuisine_types').hide()
+		$('#rest_cash').hide()
+
+		// $("input:file").on('click', function () {
+		// 	var len = $(":input").length
+		// 	$('#photos').after('<div class="col-12"><label for="file-upload' + len + '" class="button primary fit"> Загрузите фото </label> <input type="file" id="file-upload' + len + '" name="image" accept="image/png, image/jpeg, image/jpg"></div>');
+		// })
+
+		$('#cat').on('change', function () {
+			if (this.value == "rest") {
+				$('#rest_price').show()
+				$('#rest_smoke').show()
+				$('#cuisine_types').show()
+				$('#rest_cash').show()
+			}
+			if (this.value == "tea") {
+				$('#cuisine_types').hide()
+				$('#rest_price').hide()
+				$('#rest_smoke').hide()
+				$('#rest_cash').hide()
+
+			}
+			if (this.value == "fun") {
+				$('#cuisine_types').hide()
+				$('#rest_price').hide()
+				$('#rest_smoke').hide()
+				$('#rest_cash').hide()
+
+			}
+			if (this.value == "bar") {
+				$('#cuisine_types').hide()
+				$('#rest_price').hide()
+				$('#rest_smoke').hide()
+				$('#rest_cash').hide()
+
+			}
+		});
+
+		$('#trav_btn').on('click', function () {
+			$('#button_group').hide()
+			$('#trav_form').show()
+		});
+
+	</script>
+
+</body>
+
+</html>

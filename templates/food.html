@@ -5,124 +5,319 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Editorial by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/static/assets/css/main.css" />
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+	<title>Editorial by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<style>
+		.checked {
+			color: orange;
+		}
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+		#more-button {
+			border-style: none;
+			background: none;
+			font: 16px Serif;
+			color: blue;
+			margin: 0 0 10px 0;
+		}
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Рестораны и кафе</h2>
-									</header>
-									<div class="posts">
-										{%for rest in rests%}
-										<article>
-											<a href="#" class="image"><img src="/{{rest.main_image}}" alt="" /></a>
-											<h3>{{rest.name}}</h3>
-											<p>{{rest.description}}</p>
+		#grow input:checked {
+			color: red;
+		}
+
+		#more-button:hover {
+			color: black;
+		}
+
+		#grow {
+			-moz-transition: height .5s;
+			-ms-transition: height .5s;
+			-o-transition: height .5s;
+			-webkit-transition: height .5s;
+			transition: height .5s;
+			height: 0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Рестораны и кафе</h2>
+
+					</header>
+					<ul class="contact">
+						<li onclick="growDiv()" class="icon solid fa-filter"><a href="#">Фильтры</a></li>
+					</ul>
+					<div id='grow'>
+						<div class='measuringWrapper'>
+							<div class="inner add_place">
+								<form id="trav_form" method="post" action="/insert_rest_tourist/">
+									<div class="row gtr-uniform">
+
+										<div id="rest_cash" class="col-6">
+											<select name="price" id="price">
+												<option value="">Цена</option>
+												<option value="1">Дешевое питание</option>
+												<option value="2">По умеренной цене</option>
+												<option value="3">Высокая кухня</option>
+											</select>
+										</div>
+
+										<div id="rest_cash" class="col-12 col-12-small">
+											<input type="checkbox" id="cash" name="cash">
+											<label for="cash">Безаличный расчет</label>
+										</div>
+
+										<div id="rest_cash" class="col-12 col-12-small">
+											<input type="checkbox" id="wifi" name="wifi">
+											<label for="wifi">Бесплатный Wi-Fi</label>
+										</div>
+
+
+
+										<div id="rest_smoke" class="col-12 col-12-small">
+											<input type="checkbox" id="smoke" name="smoke">
+											<label for="smoke">Можно курить</label>
+											<h4>Кухня </h4>
+										</div>
+
+										<div id="cuisine_types" class="row gtr-uniform">
+
+											<div class="col-6">
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_ab" name="c_ab">
+													<label for="c_ab">Абхазская</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_az" name="c_az">
+													<label for="c_az">Азиатская</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_ar" name="c_ar">
+													<label for="c_ar">Армянская</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_vt" name="c_vt">
+													<label for="c_vt">Вьетнамская</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_gr" name="c_gr">
+													<label for="c_gr">Грузинская</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_hl" name="c_hl">
+													<label for="c_hl">Здоровая</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_it" name="c_it">
+													<label for="c_it">Итальянская</label>
+												</div>
+											</div>
+											<div id="checks" class="col-6">
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_kz" name="c_kz">
+													<label for="c_kz">Кавказская</label>
+												</div>
+												<div class="col-12 col-12-small">
+													<input type="checkbox" id="c_sh" name="c_sh">
+													<label for="c_sh">Суши</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="c_sf" name="c_sf">
+													<label for="c_sf">Морепродукты</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="c_pz" name="c_pz">
+													<label for="c_pz">Пицца</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="c_ru" name="c_ru">
+													<label for="c_ru">Русская</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="c_uz" name="c_uz">
+													<label for="c_uz">Узбекская</label>
+												</div>
+												<div class="col-6 col-12-small">
+													<input type="checkbox" id="c_ul" name="c_ul">
+													<label for="c_ul">Уличная еда</label>
+												</div>
+											</div>
+										</div>
+
+										<!-- Break -->
+										<div class="col-12">
 											<ul class="actions">
-												<li><a href="/food/{{rest.unique_id}}" class="button">Подробнее</a></li>
+												<li><input type="submit" value="Применить" class="primary"></li>
 											</ul>
-										</article>
-										{%endfor%}
+										</div>
 									</div>
-								</section>
-								<footer id="footer">
-									<p>Хотите добавить свой ресторан? <a href="">Оставьте заявку</a></p>
-								</footer>
+								</form>
 
+							</div>
 						</div>
 					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-							<!-- Menu -->
-							<nav id="menu">
-								<header class="major">
-									<h2>Меню</h2>
-									{% if user.is_authenticated %}
-									<p><a class="btn btn-primary" href="{% url 'logout' %}">Выйти</a></p>
-									{% endif %}
-								</header>
-								<ul>
-									{% if user.is_authenticated %}
-									<li><a href="/lk/">Личный кабинет</a></li>
-									{%else%}
-									<li><a href="{% url 'login' %}"><b>Войти</b></a></li>
+					<div class="posts">
+						{%for rest in rests%}
+						<article>
+							<a href="#" class="image"><img src="/{{rest.main_image}}" alt="" /></a>
+							<h3>{{rest.name}}
+
+							</h3>
+
+
+							<ul class="contact">
+								<li class="icon solid fa-grin-stars fa-sm">
+									{% for key, value in reviews_arr.items %}
+									{%if key == rest.unique_id%}
+									{% with ''|center:value as range %}
+									{% for _ in range %}
+									<span class="fa fa-star checked"></span>
+									{% endfor %}
+
+									{% for key, value in reviews_count.items %}
+									{%if key == rest.unique_id%}
+									( {{value}} отзывов )
 									{%endif%}
+									{%endfor%}
 
-									<li><a href="/">Развлечения</a></li>
-									<li><a href="/food/">Поесть</a></li>
-									<li><a href="elements.html">Elements</a></li>
-								</ul>
-							</nav>
+									{% endwith %}
+									{%endif%}
+									{% endfor %}
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="/static/images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="/static/images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="/static/images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
+								</li>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-										<li class="icon solid fa-phone">(000) 000-0000</li>
-										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-										Nashville, TN 00000-0000</li>
-									</ul>
-								</section>
+								<li class="icon solid fa-check-circle fa-sm">Открыто</li>
+								<li class="icon solid fa-pizza-slice fa-sm">{{rest.cuisine}}</li>
+							</ul>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
+							<ul style="margin-top: 2em" class="actions">
+								<li><a href="/food/{{rest.unique_id}}" class="button">Подробнее</a></li>
+							</ul>
+						</article>
+						{%endfor%}
 					</div>
+				</section>
+				<footer id="footer">
+					<p>Хотите добавить свой ресторан? <a href="/add_place/">Оставьте заявку</a></p>
+				</footer>
 
 			</div>
+		</div>
 
-		<!-- Scripts -->
-			<script src="/static/assets/js/jquery.min.js"></script>
-			<script src="/static/assets/js/browser.min.js"></script>
-			<script src="/static/assets/js/breakpoints.min.js"></script>
-			<script src="/static/assets/js/util.js"></script>
-			<script src="/static/assets/js/main.js"></script>
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Меню</h2>
+						{% if user.is_authenticated %}
+						<p><a class="btn btn-primary" href="{% url 'logout' %}">Выйти</a></p>
+						{% endif %}
+					</header>
+					<ul class="contact">
+						{% if user.is_authenticated %}
+						<li><a href="/lk/">Личный кабинет</a></li>
+						{%else%}
+						<li><a href="{% url 'login' %}"><b>Войти</b></a></li>
+						{%endif%}
 
-	</body>
+						<li><a href="/thingstodo/">Развлечения</a></li>
+						<li><a href="/food/">Поесть</a></li>
+						<li><a href="#">Бары и пабы</a></li>
+
+						<li class="icon solid fa-plus-circle fa-xs"></li> <a style="margin-left: 2em;"
+							href="/add_place/">Добавить место</a>
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Лучший выбор</h2>
+					</header>
+					<div class="mini-posts">
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic07.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic08.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+						<article>
+							<a href="#" class="image"><img src="/static/images/pic09.jpg" alt="" /></a>
+							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+						</article>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button">More</a></li>
+					</ul>
+				</section>
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
+						ullamcorper dolore. Proin sed aliquam facilisis Лучший выбор. Sed nulla amet lorem feugiat
+						tempus aliquam.</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+
+						<li class="icon solid fa-telegram-plane">@telegram</li>
+						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+							Nashville, TN 00000-0000</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/browser.min.js"></script>
+	<script src="/static/assets/js/breakpoints.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+	<script>
+		function growDiv() {
+			var growDiv = document.getElementById('grow');
+			if (growDiv.clientHeight) {
+				growDiv.style.height = 0;
+			} else {
+				var wrapper = document.querySelector('.measuringWrapper');
+				growDiv.style.height = wrapper.clientHeight + "px";
+			}
+		}
+	</script>
+
+</body>
+
 </html>

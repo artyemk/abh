@@ -1879,6 +1879,123 @@ button,
       #main > .inner > section {
         padding: 3em 0 1em 0 ; } }
 
+
+  @media screen and (min-width: 1680px) {
+    #main > .padd {
+      padding: 0 30em 0.1em 30em ; }
+      #main > .padd > section {
+        padding: 5em 0 3em 0 ; } }
+
+  @media screen and (max-width: 1680px) {
+    #main > .padd {
+      padding: 0 30em 0.1em 30em ; }
+      #main > .padd > section {
+        padding: 5em 0 3em 0 ; } }
+  @media screen and (max-width: 1280px) {
+    #main > .padd {
+      padding: 0 30em 0.1em 30em ; }
+      #main > .padd > section {
+        padding: 4em 0 2em 0 ; } }
+
+  @media screen and (max-width: 1024px) {
+    #main > .padd {
+      padding: 0 20em 0.1em 20em ; }
+      #main > .padd > section {
+        padding: 4em 0 2em 0 ; } }
+  @media screen and (max-width: 736px) {
+    #main > .padd {
+      padding: 0 5em 0.1em 5em ; }
+      #main > .padd > section {
+        padding: 3em 0 1em 0 ; } }
+
+
+  @media screen and (min-width: 1680px) {
+    #main > .padd2 {
+      padding: 0 30em 0.1em 30em ; }
+      #main > .padd2 > section {
+        padding: 5em 0 3em 0 ; } }
+
+  @media screen and (max-width: 1680px) {
+    #main > .padd2 {
+      padding: 0 25em 0.1em 25em ; }
+      #main > .padd2 > section {
+        padding: 5em 0 3em 0 ; } }
+  @media screen and (max-width: 1280px) {
+    #main > .padd2 {
+      padding: 0 20em 0.1em 20em ; }
+      #main > .padd2 > section {
+        padding: 4em 0 2em 0 ; } }
+
+  @media screen and (max-width: 1024px) {
+    #main > .padd2 {
+      padding: 0 15em 0.1em 15em ; }
+      #main > .padd2 > section {
+        padding: 4em 0 2em 0 ; } }
+  @media screen and (max-width: 736px) {
+    #main > .padd2 {
+      padding: 0 2em 0.1em 2em ; }
+      #main > .padd2 > section {
+        padding: 3em 0 1em 0 ; } }
+
+
+
+    @media screen and (min-width: 1680px) {
+      #main > .add_place {
+        padding: 0 25em 0.1em 25em ; }
+        #main > .add_place > section {
+          padding: 5em 0 3em 0 ; } }
+  
+    @media screen and (max-width: 1680px) {
+      #main > .add_place {
+        padding: 0 25em 0.1em 25em ; }
+        #main > .add_place > section {
+          padding: 5em 0 3em 0 ; } }
+    @media screen and (max-width: 1280px) {
+      #main > .add_place {
+        padding: 0 25em 0.1em 25em ; }
+        #main > .add_place > section {
+          padding: 4em 0 2em 0 ; } }
+  
+    @media screen and (max-width: 1024px) {
+      #main > .add_place {
+        padding: 0 15em 0.1em 15em ; }
+        #main > .add_place > section {
+          padding: 4em 0 2em 0 ; } }
+    @media screen and (max-width: 736px) {
+      #main > .add_place {
+        padding: 0 5em 0.1em 5em ; }
+        #main > .add_place > section {
+          padding: 3em 0 1em 0 ; } }
+
+
+    @media screen and (min-width: 1680px) {
+      #main > .lk_view {
+        padding: 0 10em 0.1em 10em ; }
+        #main > .lk_view > section {
+          padding: 5em 0 3em 0 ; } }
+  
+    @media screen and (max-width: 1680px) {
+      #main > .lk_view {
+        padding: 0 10em 0.1em 10em ; }
+        #main > .lk_view > section {
+          padding: 5em 0 3em 0 ; } }
+    @media screen and (max-width: 1280px) {
+      #main > .lk_view {
+        padding: 0 10em 0.1em 10em ; }
+        #main > .lk_view > section {
+          padding: 4em 0 2em 0 ; } }
+  
+    @media screen and (max-width: 1024px) {
+      #main > .lk_view {
+        padding: 0 5em 0.1em 5em ; }
+        #main > .lk_view > section {
+          padding: 4em 0 2em 0 ; } }
+    @media screen and (max-width: 736px) {
+      #main > .lk_view {
+        padding: 0 2em 0.1em 2em ; }
+        #main > .lk_view > section {
+          padding: 3em 0 1em 0 ; } }
+
 /* Sidebar */
 #search form {
   text-decoration: none;
